@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}{{ c.country_name_short }} - Country-Data.org {% endblock title %}
+
+
+{% block mainbody %}
+    <h1>{{ country.CIAWFB_name_short }}{% if c.country_name_long %} ({{ CIAWFB_latest_entry.country_name_long }}){% endif %}</h1>
+
+    <h2>General Notes:</h2>
+
+    <h2>CIA World Factbook</h2>
+    <p>(Updated {{ CIAWFB_latest_entry.date_entered|default:"Unknown" }} from <a href="{{ CIAWFB_latest_entry.country_url }}">source</a>)</p>
+    <h3>Country Background</h3>
+    <p>{{ CIAWFB_latest_entry.background }}</p>
+    <h3>Geography</h3>
+    <ul>
+        <li><span class="attribute_name">Location:</span> <span class="attribute_value">{{ CIAWFB_latest_entry.location|default:"Not listed" }}</span></li>
+
+        <li><span class="attribute_name">Climate:</span> <span class="attribute_value">{{ CIAWFB_latest_entry.climate|default:"Not listed" }}</span></li>
+
+        <li><span class="attribute_name">Terrain:</span> <span class="attribute_value">{{ CIAWFB_latest_entry.terrain|default:"Not listed" }}</span></li>
+
+        <li><span class="attribute_name">Annual Renewable Freshwater Resources (cubic km):</span> <span class="attribute_value">{{ CIAWFB_latest_entry.annual_renewable_water_resources_cu_km|default:"Not listed" }}</span></li>
+
+        <li><span class="attribute_name">Annual Freshwater Withdrawal (cubic km):</span> <span class="attribute_value">{{ CIAWFB_latest_entry.annual_freshwater_withdrawal_cu_km|default:"Not listed" }}</span></li>
+
+        <li><span class="attribute_name">Natural Hazards:</span> <span class="attribute_value">{{ CIAWFB_latest_entry.natural_hazards|default:"Not listed" }}</span></li>
+
+        <li><span class="attribute_name">Current Environmental Issues:</span> <span class="attribute_value">{{ CIAWFB_latest_entry.environment_current_issues|default:"Not listed" }}</span></li>
+    </ul>
+
+    <h3>Medicine and Health</h3>
+    <ul>
+        <li><span class="attribute_name">Total Population Life Expectancy at Birth:</span> <span class="attribute_value">{{ CIAWFB_latest_entry.total_population_life_expectancy_at_birth|default:"Not listed" }}</span></li>
+        <li><span class="attribute_name">:</span> <span class="attribute_value">{{ CIAWFB_latest_entry.|default:"Not listed" }}</span></li>
+        <li><span class="attribute_name">:</span> <span class="attribute_value">{{ CIAWFB_latest_entry.|default:"Not listed" }}</span></li>
+        <li><span class="attribute_name">:</span> <span class="attribute_value">{{ CIAWFB_latest_entry.|default:"Not listed" }}</span></li>
+        <li><span class="attribute_name">:</span> <span class="attribute_value">{{ CIAWFB_latest_entry.|default:"Not listed" }}</span></li>
+        <li><span class="attribute_name">:</span> <span class="attribute_value">{{ CIAWFB_latest_entry.|default:"Not listed" }}</span></li>
+        <li><span class="attribute_name">:</span> <span class="attribute_value">{{ CIAWFB_latest_entry.|default:"Not listed" }}</span></li>
+        <li><span class="attribute_name">:</span> <span class="attribute_value">{{ CIAWFB_latest_entry.|default:"Not listed" }}</span></li>
+        <li><span class="attribute_name">:</span> <span class="attribute_value">{{ CIAWFB_latest_entry.|default:"Not listed" }}</span></li>
+
+    </ul>
+
+
+{% endblock mainbody %}
