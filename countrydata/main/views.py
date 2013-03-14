@@ -4,14 +4,13 @@ from .models import Country, CIAWFBEntry
 
 
 def index(request):
-    country_list = Country.objects.all()
+    country_list = Country.objects.all().order_by('CIAWFB_name_short')
     return render_to_response('index.html', {'country_list': country_list})
 
 
-def country(request, country_short_name):
-    country = get_object_or_404(Country, CIAWFB_name_short=country_short_name)
-    country_id = country.id
-    latestentry = CIAWFBEntry.objects.filter(country__id=country_id).order_by('-date_entered')[0]
+def country(request, url_name):
+    country = get_object_or_404(Country, url_name=url_name)
+    latestentry = CIAWFBEntry.objects.filter(country__id=country.id).order_by('-date_entered')[0]
     return render_to_response('countrydetail.html',
                               {'country': country,
-                               'CIAWFB_latest_entry': latestentry})
+                               'CIAWFB_entry': latestentry})

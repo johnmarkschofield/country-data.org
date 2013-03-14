@@ -10,11 +10,11 @@ To Do:
 ------
 
 * At present, I'm working on parsing and importing data from the CIA World Factbook. -- DONE
-** parse one field list page -- DONE
-** import one field list page to database -- DONE
-** Deal with country names with spaces -- DONE
-** Sort Country Names on country list page -- DONE
-** import all field list pages - DONE
+* parse one field list page -- DONE
+* import one field list page to database -- DONE
+* Deal with country names with spaces -- DONE
+* Sort Country Names on country list page -- DONE
+* import all field list pages - DONE
 * Skip importing duplicate data
 * After that, I'll need to get display and browsing of data going. -- DONE
 * All data is being imported into string fields. We'll need to convert numerical data to numbers, etc.

@@ -5,6 +5,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
                        url(r'^$', 'main.views.index'),
-                       url(r'^country/(?P<country_short_name>.*)/$', 'main.views.country'),
+                       url(r'^country/(?P<url_name>.*)/$', 'main.views.country'),
                        url(r'^admin/', include(admin.site.urls)),
                        )
