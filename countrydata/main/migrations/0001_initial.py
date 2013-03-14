@@ -11,6 +11,7 @@ class Migration(SchemaMigration):
         # Adding model 'Country'
         db.create_table(u'main_country', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('url_name', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('CIAWFB_name_short', self.gf('django.db.models.fields.CharField')(max_length=100)),
         ))
         db.send_create_signal(u'main', ['Country'])
@@ -20,7 +21,7 @@ class Migration(SchemaMigration):
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('country', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['main.Country'])),
             ('date_entered', self.gf('django.db.models.fields.DateField')()),
-            ('country_url', self.gf('django.db.models.fields.URLField')(max_length=200)),
+            ('agriculture_products', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
             ('country_name_long', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
             ('background', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
             ('location', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
@@ -53,6 +54,7 @@ class Migration(SchemaMigration):
             'GDP_real_growth_rate_percentage': ('django.db.models.fields.DecimalField', [], {'null': 'True', 'max_digits': '4', 'decimal_places': '2', 'blank': 'True'}),
             'HIVAIDS_adult_prevalance_rate_percent': ('django.db.models.fields.DecimalField', [], {'null': 'True', 'max_digits': '4', 'decimal_places': '2', 'blank': 'True'}),
             'Meta': {'object_name': 'CIAWFBEntry'},
+            'agriculture_products': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
             'annual_freshwater_withdrawal_cu_km': ('django.db.models.fields.DecimalField', [], {'null': 'True', 'max_digits': '7', 'decimal_places': '2', 'blank': 'True'}),
             'annual_renewable_water_resources_cu_km': ('django.db.models.fields.DecimalField', [], {'null': 'True', 'max_digits': '7', 'decimal_places': '2', 'blank': 'True'}),
             'background': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
@@ -60,7 +62,6 @@ class Migration(SchemaMigration):
             'consumer_prices_inflation_rate_percent': ('django.db.models.fields.DecimalField', [], {'null': 'True', 'max_digits': '5', 'decimal_places': '2', 'blank': 'True'}),
             'country': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['main.Country']"}),
             'country_name_long': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
-            'country_url': ('django.db.models.fields.URLField', [], {'max_length': '200'}),
             'date_entered': ('django.db.models.fields.DateField', [], {}),
             'economic_narrative': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'environment_current_issues': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
@@ -74,7 +75,8 @@ class Migration(SchemaMigration):
         u'main.country': {
             'CIAWFB_name_short': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'Meta': {'object_name': 'Country'},
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'})
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'url_name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         }
     }
 
