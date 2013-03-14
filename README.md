@@ -9,12 +9,12 @@ Vastly incomplete.
 To Do:
 ------
 
-* <del> parse one field list page -- DONE </del>
-* <del> import one field list page to database -- DONE </del>
-* <del> Deal with country names with spaces -- DONE</del>
-* <del> Sort Country Names on country list page -- DONE</del>
-* <del> import all field list pages - DONE</del>
-* <del> After that, I'll need to get display and browsing of data going. -- DONE</del>
+* <del>parse one field list page</del>
+* <del>import one field list page to database</del>
+* <del>Deal with country names with spaces</del>
+* <del>Sort Country Names on country list page</del>
+* <del>import all field list pages</del>
+* <del>After that, I'll need to get display and browsing of data going.</del>
 * Skip importing duplicate data
 * All data is being imported into string fields. We'll need to convert numerical data to numbers, etc.
 * After that, we'll need user-configurable filtering, without saved filters.
