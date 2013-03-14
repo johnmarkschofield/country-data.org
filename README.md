@@ -21,7 +21,6 @@ To Do:
 * After that, we'll need user-configurable filtering, without saved filters.
 * After that, we'll need the ability to authenticate users and save filters.
 * After that, we'll need to import data from other sources (starting with State Department Human Rights Report).
-* After that, we'll need to add the ability to share filters with other people.
 * After that, we'll need to add additional data sources (UN, UK, Canada, human rights groups, etc.)
 
 
