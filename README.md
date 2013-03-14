@@ -15,6 +15,7 @@ To Do:
 * <del>Sort Country Names on country list page</del>
 * <del>import all field list pages</del>
 * <del>After that, I'll need to get display and browsing of data going.</del>
+* Validate imported data -- what fields besides budget in Brazil are we missing? Fix missing/wrong fields.
 * Skip importing duplicate data
 * All data is being imported into string fields. We'll need to convert numerical data to numbers, etc.
 * After that, we'll need user-configurable filtering, without saved filters.
