@@ -9,14 +9,13 @@ Vastly incomplete.
 To Do:
 ------
 
-* At present, I'm working on parsing and importing data from the CIA World Factbook. -- DONE
-* parse one field list page -- DONE
-* import one field list page to database -- DONE
-* Deal with country names with spaces -- DONE
-* Sort Country Names on country list page -- DONE
-* import all field list pages - DONE
+* <del> parse one field list page -- DONE </del>
+* <del> import one field list page to database -- DONE </del>
+* <del> Deal with country names with spaces -- DONE</del>
+* <del> Sort Country Names on country list page -- DONE</del>
+* <del> import all field list pages - DONE</del>
+* <del> After that, I'll need to get display and browsing of data going. -- DONE</del>
 * Skip importing duplicate data
-* After that, I'll need to get display and browsing of data going. -- DONE
 * All data is being imported into string fields. We'll need to convert numerical data to numbers, etc.
 * After that, we'll need user-configurable filtering, without saved filters.
 * After that, we'll need the ability to authenticate users and save filters.
