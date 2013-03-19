@@ -6,8 +6,11 @@ import bs4
 from django.core.management.base import BaseCommand
 from django.template.defaultfilters import slugify
 from django.utils import timezone
+from django.db import DatabaseError
 
 from main.models import Country, CIAWFBEntry
+
+VERBOSE = True
 
 field_data_codes = {'administrative_divisions': '2051',
                     'age_structure': '2010',
@@ -21,7 +24,7 @@ field_data_codes = {'administrative_divisions': '2051',
                     'birth_rate': '2054',
                     'broadcast_media': '2213',
                     'budget': '2056',
-                    'budget_surplus_or_deficit_': '2222',
+                    'budget_surplus_or_deficit': '2222',
                     'capital': '2057',
                     'carbon_dioxide_emissions_from_consumption_of_energy': '2254',
                     'central_bank_discount_rate': '2207',
@@ -232,10 +235,23 @@ class Command(BaseCommand):
 
                 # Now update the field we've got for that CIAWFB entry
                 db_name = slugify(field_name).replace('-', '_')
-                setattr(CIAWFB_object, db_name, field_data[country_name])
-                CIAWFB_object.save()
 
-        for field_name in field_data_codes.keys():
+                try:
+                    setattr(CIAWFB_object, db_name, field_data[country_name])
+                    CIAWFB_object.save()
+                except DatabaseError:
+                    print('Unable to write field "%s" (country "%s"). Size to write was %s.' %
+                          (db_name, country_name, len(field_data[country_name])))
+                    longest_field = 0
+                    for cname in field_data.keys():
+                        len_data = len(field_data[cname])
+                        if len_data > longest_field:
+                            longest_field = len_data
+                    print("Field: %s; Max Length: %s" % (field_name, longest_field))
+                    raise DatabaseError
+
+        for field_name in sorted(field_data_codes.keys()):
+            if VERBOSE:
+                print('Processing field: %s' % field_name)
             field_data = extract_field_data(field_name, field_data_codes[field_name])
             write_field_data_to_db(field_name, field_data)
-            # next: https://docs.djangoproject.com/en/dev/intro/tutorial01/
